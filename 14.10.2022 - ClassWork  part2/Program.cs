@@ -24,7 +24,7 @@ namespace _14._10._2022___Classwork
 
     class EmployerTime : ICounter, IWhenCreated//, IWorkToDisk
     {
-
+        
         private DateTime CreatedTime;
         private string name;
         
@@ -128,6 +128,7 @@ namespace _14._10._2022___Classwork
     interface ICounter
     {
         int count { get; }
+        //string Name { set; get; }
         void BriefPrint()
         {
 
@@ -144,10 +145,17 @@ namespace _14._10._2022___Classwork
     interface IWorkToDisk
     {
         string FileName { get; }
-        bool SaveToDisk();
+        bool SaveToDisk()
+        {
+            string path = "myFile.txt";
+            FileStream(path, OpenOrCreate);
+            return true;
+        }
         bool ReadFromDisk();
 
     }
+
+    
 
     class Program
     {
@@ -179,6 +187,8 @@ namespace _14._10._2022___Classwork
 
             var BobTime = new EmployerTime();
             var JohnTime = new EmployerTime();
+            //ICounter Bill = JohnTime;
+            Console.WriteLine(JohnTime);
             //BobTime.Print();
             BobTime[2] = entrance;
             BobTime.Print();
